@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-surface text-ink font-body antialiased;
+    background-image: linear-gradient(rgba(52, 216, 168, 0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(52, 216, 168, 0.035) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* Visible keyboard focus everywhere — accessibility floor */
+  :focus-visible {
+    outline: 2px solid #34d8a8;
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background: rgba(52, 216, 168, 0.25);
+    color: #e9f1ef;
+  }
+
+  /* Respect reduced-motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer components {
+  /* Panel label style — mimics dashboard section headers e.g. "// 02_PROJECTS" */
+  .panel-label {
+    @apply font-mono text-xs tracking-widest text-signal uppercase;
+  }
+
+  .glass-panel {
+    @apply bg-surface-panel/60 backdrop-blur-md border border-surface-border rounded-xl;
+  }
+}
