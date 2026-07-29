@@ -26,7 +26,7 @@ const projects = [
       "Used SHAP explainability to make every flagged prediction auditable — not a black box.",
       "Designed with a human-oversight and fairness/compliance layer in mind, not just raw model output.",
     ],
-    github: "https://github.com/Sivaan66/delinquency-prediction",
+    github: "https://github.com/Sivaan66/Customer-Delinquency-Risk-Analysis",
     demo: null,
   },
   {
@@ -48,7 +48,7 @@ const projects = [
       "Delivered as both a minor project and an extended major-project report on the same system.",
       "Demonstrated how optimization algorithms from the ML/AI space can be applied to classical control engineering problems — a direct link between core EE training and optimization-driven AI thinking.",
     ],
-    github: "https://github.com/Sivaan66/fopid-cruise-control",
+    github: "https://github.com/Sivaan66/FOPID-Cruise-Control_m-AHA",
     demo: null,
   },
   {
