@@ -9,8 +9,8 @@ import GlassCard from "../ui/GlassCard";
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID";
 
 const CONTACT_LINKS = [
-  { icon: Mail, label: "your.email@example.com", href: "mailto:your.email@example.com" },
-  { icon: Linkedin, label: "linkedin.com/in/your-handle", href: "https://linkedin.com/in/your-handle" },
+  { icon: Mail, label: "sibanandapathy8270@gmail.com", href: "mailto:sibanandapathy8270@gmail.com" },
+  { icon: Linkedin, label: "linkedin.com/in/sibanandapathy", href: "https://linkedin.com/in/sibanandapathy" },
   { icon: Github, label: "github.com/Sivaan66", href: "https://github.com/Sivaan66" },
 ];
 
