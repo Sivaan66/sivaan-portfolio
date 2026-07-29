@@ -86,7 +86,7 @@ that automatically builds and deploys on every push to `main`.
 2. **Update the Vite base path** in `vite.config.js` to match your repo name
    exactly:
    ```js
-   base: "/your-repo-name/",
+   base: "/sivaan-portfolio/",
    ```
 
 3. In your GitHub repo, go to **Settings → Pages**, and under **Build and
@@ -97,12 +97,12 @@ that automatically builds and deploys on every push to `main`.
 
 5. Your site will be live at:
    ```
-   https://<your-github-username>.github.io/<your-repo-name>/
+   https://<your-github-Sivaan66>.github.io/<sivaan-portfolio>/
    ```
 
 ### Manual deploy (alternative)
 
-If you'd rather deploy manually instead of via GitHub Actions:
+Rather deploying manually instead of via GitHub Actions:
 ```bash
 npm run build
 npm run deploy
