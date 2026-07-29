@@ -1,9 +1,11 @@
 # Sivaan — Portfolio
 
-A dark-themed, data/AI-engineer-styled portfolio built with React, Vite, and
-Tailwind CSS. Designed to help land Data Analyst, AI/ML Engineer, and Data
-Science roles by presenting real project case studies rather than a generic
-template.
+Welcome to my personal portfolio website.
+
+This portfolio showcases my journey as a Data Analyst and AI enthusiast, featuring my projects, technical skills, experience, and learning progress. It highlights my work in data analysis, machine learning, predictive modeling, and AI-driven solutions.
+
+The website is designed with a modern developer-focused interface, combining clean UI design with a technical aesthetic. It includes project showcases, resume access, skills overview, and contact information.
+
 
 ## Tech stack
 
