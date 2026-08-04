@@ -28,7 +28,7 @@ export default function About() {
       <div className="grid md:grid-cols-2 gap-10">
         <div className="space-y-4 text-ink-muted leading-relaxed">
           <p>
-            I'm a final-year Electrical Engineering student transitioning into{" "}
+            I'm an Electrical Engineering Graduate transitioning into{" "}
             <span className="text-ink">data analytics and artificial intelligence</span>.
             My engineering background gave me a foundation in systems thinking
             and mathematical rigor — I now apply that to data, building
