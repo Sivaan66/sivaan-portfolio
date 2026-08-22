@@ -1,16 +1,25 @@
-// Add a new project by appending a new object to this array.
-// No component code needs to change — cards, modals, and the grid
-// all render dynamically from this list.
-//
-// status: "completed" | "in-progress" | "planned"
+// Project content is structured for the dashboard cards first, with the full case study below.
+// Keep metrics evidence-based; replace placeholders only with measured project results.
 
 const projects = [
   {
     id: "delinquency-prediction",
     status: "completed",
-    category: "Machine Learning",
-    title: "Delinquency Prediction System",
-    tagline: "Predicting customer delinquency risk before it happens.",
+    category: "Risk Analytics",
+    title: "Identifying High-Risk Customers Before Delinquency",
+    tagline: "Risk classification optimized to prioritize the detection of potential delinquents.",
+    impact: "Built an interpretable risk-scoring workflow focused on finding potential delinquents while explicitly auditing the false negatives the model misses.",
+    metrics: [
+      ["PRIMARY METRIC", "Recall-first", "Class 1"],
+      ["DATA", "Customer risk", "Mixed features"],
+    ],
+    method: ["Class-imbalance analysis", "Recall optimization", "SHAP explainability"],
+    techContext: [
+      ["Python", "Modeling"],
+      ["Pandas", "Preparation"],
+      ["Scikit-learn", "Evaluation"],
+      ["SHAP", "Explainability"],
+    ],
     problem:
       "Lenders lose money not just from defaults, but from failing to catch risky customers early enough to intervene. The goal was to build a model that flags high-risk customers with high recall — missing a risky customer is far more costly than a false alarm.",
     approach: [
@@ -32,9 +41,21 @@ const projects = [
   {
     id: "fopid-cruise-control",
     status: "completed",
-    category: "Control Systems / Optimization",
-    title: "FOPID-Controlled Cruise Control using Modified Artificial Hummingbird Algorithm",
-    tagline: "Bridging control theory and metaheuristic optimization.",
+    category: "Optimization / Control",
+    title: "Optimizing Vehicle Speed Under Disturbance",
+    tagline: "FOPID control tuned to balance tracking accuracy, overshoot, and settling time.",
+    impact: "Designed and optimized a fractional-order PID controller to balance vehicle speed tracking and transient-response performance.",
+    metrics: [
+      ["PRIMARY METRIC", "Transient response", "Simulation"],
+      ["OPTIMIZER", "M-AHA", "Parameter search"],
+    ],
+    method: ["Vehicle modelling", "FOPID design", "M-AHA optimization"],
+    techContext: [
+      ["MATLAB", "Simulation"],
+      ["Simulink", "System model"],
+      ["FOPID", "Controller"],
+      ["M-AHA", "Optimization"],
+    ],
     problem:
       "Classical PID controllers for vehicle cruise control often struggle to balance fast response with stability under changing conditions. The project explored whether a Fractional-Order PID (FOPID) controller, tuned by a metaheuristic optimizer, could outperform conventional tuning.",
     approach: [
@@ -55,12 +76,26 @@ const projects = [
     id: "genai-project-placeholder",
     status: "planned",
     category: "Generative AI / LLMs",
-    title: "GenAI / LLM Application — Coming Soon",
-    tagline: "Next up: a Generative AI project applying LLMs to a real workflow.",
+    title: "Building an AI-Powered Analytics Workflow",
+    tagline: "Research preview: connecting structured analysis, LLM reasoning, and automated action.",
+    impact: "Exploring how generative AI can turn analytical outputs into practical, repeatable business workflows.",
+    metrics: [
+      ["STATUS", "Research", "Preview"],
+      ["FOCUS", "LLM + Analytics", "Workflow"],
+    ],
+    method: ["Structured data analysis", "LLM reasoning", "Workflow automation"],
+    techContext: [
+      ["Python", "Data / orchestration"],
+      ["LLMs", "Reasoning layer"],
+      ["Prompting", "Structured analysis"],
+      ["APIs", "Integration"],
+    ],
     problem:
       "This slot is reserved for an upcoming project applying large language models and generative AI to a practical automation or data-analysis workflow.",
     approach: [
-      "Roadmap item — check back soon, or view the GitHub profile for in-progress work.",
+      "Research direction: connect structured data preparation and analytical outputs to an LLM reasoning layer.",
+      "Explore reliable prompting and structured outputs rather than treating the LLM as an unbounded chatbot.",
+      "Design the workflow toward an actionable automation layer with appropriate validation and human oversight.",
     ],
     tech: ["Generative AI", "LLM Applications", "AI Automation"],
     results: [],
