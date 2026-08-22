@@ -20,27 +20,27 @@ export default function ProjectModal({ project, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-black/70 backdrop-blur-sm px-3 py-4 sm:px-6 sm:py-6"
+      className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-black/70 backdrop-blur-sm px-3 pt-[8vh] pb-[8vh] sm:px-6 sm:pt-[6vh] sm:pb-[6vh]"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
     >
       <div
-        className="glass-panel bg-surface-panel w-full max-w-2xl max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-3rem)] overflow-y-auto my-0 p-5 sm:p-8 relative animate-fade-up overscroll-contain"
+        className="glass-panel bg-surface-panel w-full max-w-2xl max-h-[84vh] sm:max-h-[88vh] overflow-y-auto p-5 sm:p-8 relative animate-fade-up overscroll-contain"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
           aria-label="Close case study"
-          className="sticky top-0 ml-auto -mr-1 sm:-mr-2 z-10 flex items-center justify-center w-8 h-8 rounded-md bg-surface-panel/90 text-ink-muted hover:text-signal transition-colors"
+          className="absolute top-3 right-3 z-10 flex items-center justify-center w-8 h-8 rounded-md bg-surface-panel/90 text-ink-muted hover:text-signal transition-colors"
         >
           <X size={20} />
         </button>
 
-        <div className="-mt-8 sm:-mt-8 pr-1">
+        <div className="pr-10">
           <p className="panel-label mb-2">{project.category}</p>
-          <h3 id="modal-title" className="font-display text-2xl font-semibold text-ink mb-6 pr-8">
+          <h3 id="modal-title" className="font-display text-2xl font-semibold text-ink mb-6">
             {project.title}
           </h3>
         </div>
