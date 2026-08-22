@@ -4,28 +4,28 @@ export default {
   theme: {
     extend: {
       colors: {
-        // Base surfaces — near-black with a slight teal cast, not pure black
+        // Dashboard surfaces — deep navy/black inspired by modern analytics UIs
         surface: {
-          DEFAULT: "#0a0e0e",
-          panel: "#0f1515",
-          raised: "#141b1b",
-          border: "#1f2b2a",
+          DEFAULT: "#090b10",
+          panel: "#10131a",
+          raised: "#171b24",
+          border: "#252b38",
         },
-        // Signal accent — primary interactive/highlight color
+        // Primary dashboard signal — blue used for active states and data emphasis
         signal: {
-          DEFAULT: "#34d8a8",
-          dim: "#1f8f70",
-          glow: "#5ce8c1",
+          DEFAULT: "#3b82f6",
+          dim: "#2563eb",
+          glow: "#60a5fa",
         },
-        // Secondary accent — used sparingly, like a second data series
+        // Secondary accent — reserved for warnings/highlights
         amber: {
           DEFAULT: "#f2b134",
           dim: "#b8862a",
         },
         ink: {
-          DEFAULT: "#e9f1ef",
-          muted: "#a9bfb9",
-          faint: "#6b807a",
+          DEFAULT: "#f3f5f8",
+          muted: "#a7afbd",
+          faint: "#687181",
         },
       },
       fontFamily: {
@@ -35,7 +35,7 @@ export default {
       },
       backgroundImage: {
         "grid-texture":
-          "linear-gradient(rgba(52,216,168,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(52,216,168,0.035) 1px, transparent 1px)",
+          "linear-gradient(rgba(59,130,246,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(59,130,246,0.035) 1px, transparent 1px)",
       },
       backgroundSize: {
         grid: "40px 40px",
@@ -51,8 +51,8 @@ export default {
           "50%": { opacity: 0 },
         },
         "pulse-dot": {
-          "0%, 100%": { boxShadow: "0 0 0 0 rgba(52,216,168,0.5)" },
-          "50%": { boxShadow: "0 0 0 6px rgba(52,216,168,0)" },
+          "0%, 100%": { boxShadow: "0 0 0 0 rgba(59,130,246,0.5)" },
+          "50%": { boxShadow: "0 0 0 6px rgba(59,130,246,0)" },
         },
         "fade-up": {
           from: { opacity: 0, transform: "translateY(16px)" },
