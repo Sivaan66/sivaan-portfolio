@@ -2,7 +2,6 @@ import { useState } from "react";
 import {
   BarChart3,
   BriefcaseBusiness,
-  ChevronRight,
   FileText,
   Github,
   Home,
@@ -11,7 +10,6 @@ import {
   UserRound,
   X,
 } from "lucide-react";
-import useScrollSpy from "../../hooks/useScrollSpy";
 
 const NAV_GROUPS = [
   {
@@ -26,14 +24,12 @@ const NAV_GROUPS = [
     label: "Portfolio",
     links: [
       { id: "projects", label: "Projects", icon: BriefcaseBusiness },
-      { id: "experience", label: "Journey", icon: ChevronRight },
+      { id: "experience", label: "Journey", icon: FileText },
       { id: "certifications", label: "Certifications", icon: FileText },
       { id: "blog", label: "Writing", icon: FileText },
     ],
   },
 ];
-
-const ALL_LINKS = NAV_GROUPS.flatMap((group) => group.links);
 
 function SidebarContent({ activeId, onNavigate }) {
   return (
@@ -71,6 +67,7 @@ function SidebarContent({ activeId, onNavigate }) {
                   <li key={id}>
                     <button
                       onClick={() => onNavigate(id)}
+                      aria-current={active ? "page" : undefined}
                       className={`w-full flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-all ${
                         active
                           ? "bg-signal text-surface font-medium shadow-[0_8px_24px_rgba(52,216,168,0.12)]"
@@ -100,7 +97,12 @@ function SidebarContent({ activeId, onNavigate }) {
         </a>
         <button
           onClick={() => onNavigate("contact")}
-          className="w-full flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-ink-muted hover:text-ink hover:bg-surface-raised transition-colors"
+          className={`w-full flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors ${
+            activeId === "contact"
+              ? "bg-signal text-surface font-medium"
+              : "text-ink-muted hover:text-ink hover:bg-surface-raised"
+          }`}
+          aria-current={activeId === "contact" ? "page" : undefined}
         >
           <Settings size={17} />
           <span>Contact</span>
@@ -110,26 +112,26 @@ function SidebarContent({ activeId, onNavigate }) {
   );
 }
 
-export default function Navbar() {
+export default function Navbar({ activeId, onNavigate }) {
   const [open, setOpen] = useState(false);
-  const activeId = useScrollSpy(ALL_LINKS.map((link) => link.id));
 
-  const handleLinkClick = (id) => {
+  const handleNavigate = (id) => {
     setOpen(false);
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    onNavigate(id);
   };
 
   return (
     <>
       <aside className="hidden lg:flex fixed inset-y-0 left-0 z-50 w-64 flex-col bg-surface/95 backdrop-blur-xl border-r border-surface-border">
-        <SidebarContent activeId={activeId} onNavigate={handleLinkClick} />
+        <SidebarContent activeId={activeId} onNavigate={handleNavigate} />
       </aside>
 
       <header className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl border-b border-surface-border">
         <nav className="h-16 px-4 flex items-center justify-between">
           <button
-            onClick={() => handleLinkClick("hero")}
+            onClick={() => handleNavigate("hero")}
             className="flex items-center gap-2.5"
+            aria-label="Go to portfolio overview"
           >
             <span className="w-8 h-8 rounded-lg bg-signal/10 border border-signal/30 flex items-center justify-center font-mono text-sm font-semibold text-signal">
               S
@@ -148,7 +150,7 @@ export default function Navbar() {
 
         {open && (
           <div className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-surface-border bg-surface px-3 py-4">
-            <SidebarContent activeId={activeId} onNavigate={handleLinkClick} />
+            <SidebarContent activeId={activeId} onNavigate={handleNavigate} />
           </div>
         )}
       </header>
