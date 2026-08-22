@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { Activity, ArrowUpRight, BarChart3, BriefcaseBusiness, Database, Download, Github, Layers3, Mail, Sparkles, Terminal } from "lucide-react";
+import { Activity, ArrowUpRight, BarChart3, BriefcaseBusiness, Database, Download, Github, Layers3, Mail, Sparkles, Terminal, TrendingUp } from "lucide-react";
 import Button from "../ui/Button";
 
 const TYPED_LINE = "portfolio --overview";
 const KPI_CARDS = [["Projects", "10+", "Substantive", BriefcaseBusiness], ["Records analyzed", "500K+", "Across projects", Database], ["Core tools", "15+", "Portfolio-wide", Layers3], ["Focus", "Analytics", "ML + AI", BarChart3]];
 const FOCUS = [["Analytics", "EDA · SQL · BI", "Strong", 92], ["Machine Learning", "Classification · SHAP", "Strong", 82], ["Automation", "ETL · AI workflows", "Building", 66], ["Engineering", "Systems · Optimization", "Foundation", 58]];
 const STACK = [["Python", "Primary"], ["SQL", "Primary"], ["Power BI", "BI"], ["Pandas", "Analysis"], ["Scikit-learn", "ML"], ["SHAP", "Explainability"], ["Excel", "Analysis"], ["MATLAB", "Engineering"]];
+const SIGNAL_BARS = [28, 36, 31, 44, 40, 55, 51, 68, 64, 78, 73, 88];
 
 export default function Hero({ onNavigate }) {
   const [typed, setTyped] = useState("");
@@ -34,8 +35,21 @@ export default function Hero({ onNavigate }) {
         <div className="glass-panel p-5 sm:p-6 min-h-[225px] flex flex-col justify-between overflow-hidden relative">
           <div className="absolute -right-20 -top-20 w-48 h-48 rounded-full bg-signal/5 blur-3xl pointer-events-none" />
           <div className="relative">
-            <div className="flex items-center gap-2 mb-4 font-mono text-[10px] text-ink-faint"><Terminal size={12} className="text-signal" /> sivaan@analytics:~$ {typed}{!showOutput && <span className="animate-blink text-signal">▌</span>}</div>
-            {showOutput && <div className="animate-fade-up"><p className="font-mono text-[9px] uppercase tracking-[0.22em] text-signal mb-2">DATA ANALYST · ML / AI BUILDER</p><h1 className="font-display text-3xl sm:text-4xl xl:text-5xl font-semibold tracking-tight text-ink leading-none">Turning data into <span className="text-signal">useful decisions.</span></h1><p className="mt-3 max-w-xl text-xs leading-5 text-ink-muted">Analytics, machine learning, and automation built around real business questions.</p></div>}
+            <div className="flex items-center gap-2 mb-3 font-mono text-[10px] text-ink-faint"><Terminal size={12} className="text-signal" /> sivaan@analytics:~$ {typed}{!showOutput && <span className="animate-blink text-signal">▌</span>}</div>
+            {showOutput && <div className="animate-fade-up">
+              <div className="flex flex-col sm:flex-row sm:items-end gap-4">
+                <div className="min-w-0 flex-1">
+                  <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-signal mb-2">DATA ANALYST · ML / AI BUILDER</p>
+                  <h1 className="font-display text-3xl sm:text-4xl xl:text-5xl font-semibold tracking-tight text-ink leading-none">Turning data into <span className="text-signal">useful decisions.</span></h1>
+                  <p className="mt-3 max-w-xl text-xs leading-5 text-ink-muted">Analytics, machine learning, and automation built around real business questions.</p>
+                </div>
+                <div className="hidden sm:block w-[150px] shrink-0 rounded-lg border border-surface-border bg-surface-panel/70 p-2.5">
+                  <div className="flex items-center justify-between mb-2"><span className="font-mono text-[7px] uppercase tracking-wider text-ink-faint">Insight signal</span><TrendingUp size={11} className="text-signal" /></div>
+                  <div className="flex items-end gap-1 h-12 border-b border-surface-border">{SIGNAL_BARS.map((height, index) => <div key={index} className="flex-1 rounded-t-sm bg-signal/40 hover:bg-signal/70 transition-all" style={{ height: `${height}%` }} />)}</div>
+                  <div className="flex justify-between mt-1.5"><span className="font-mono text-[7px] text-ink-faint">DATA</span><span className="font-mono text-[7px] text-signal">+18.4%</span></div>
+                </div>
+              </div>
+            </div>}
           </div>
           <div className="relative mt-5 flex flex-wrap items-center gap-1.5">
             <Button onClick={() => onNavigate?.("projects")} icon={ArrowUpRight} className="!px-3 !py-1.5 !rounded-md !text-[10px] !gap-1.5">Explore Work</Button>
