@@ -28,31 +28,6 @@ const projects = [
     demo: null
   },
   {
-    id: "fopid-cruise-control",
-    status: "completed",
-    category: "Optimization / Control",
-    title: "Optimizing Vehicle Speed Under Disturbance",
-    tagline: "FOPID control tuned to balance tracking accuracy, overshoot, and settling time.",
-    impact: "Designed and optimized a fractional-order PID controller to balance vehicle speed tracking and transient-response performance.",
-    metrics: [["PRIMARY METRIC", "Transient response", "Simulation"], ["OPTIMIZER", "M-AHA", "Parameter search"]],
-    method: ["Vehicle modelling", "FOPID design", "M-AHA optimization"],
-    techContext: [["MATLAB", "Simulation"], ["Simulink", "System model"], ["FOPID", "Controller"], ["M-AHA", "Optimization"]],
-    problem: "Classical PID controllers for vehicle cruise control often struggle to balance fast response with stability under changing conditions. The project explored whether a Fractional-Order PID (FOPID) controller, tuned by a metaheuristic optimizer, could improve the transient response.",
-    approach: [
-      "Modeled the vehicle cruise-control system as a transfer function and defined the optimization objective.",
-      "Implemented a Fractional-Order PID controller with two additional tunable orders (λ, μ) for finer control over system response.",
-      "Used the Modified Artificial Hummingbird Algorithm (M-AHA) to search the FOPID parameter space and optimize controller gains.",
-      "Simulated the full system in MATLAB/Simulink to validate controller performance under different driving conditions."
-    ],
-    tech: ["MATLAB", "Simulink", "FOPID Control", "Metaheuristic Optimization"],
-    results: [
-      "Delivered as both a minor project and an extended major-project report on the same system.",
-      "Demonstrated how optimization techniques can be applied to classical control-engineering problems."
-    ],
-    github: "https://github.com/Sivaan66/FOPID-Cruise-Control_m-AHA",
-    demo: null
-  },
-  {
     id: "paris-flood-etl",
     status: "completed",
     category: "Data Engineering / ETL",
@@ -110,6 +85,31 @@ const projects = [
       "The analysis showed that unit volume does not necessarily equal financial value: lower-volume, higher-price products can materially outperform high-volume items on revenue."
     ],
     github: "https://github.com/Sivaan66/Online_retails_CustomerCohort_And_RFM_Analysis_Python_PowerBI",
+    demo: null
+  },
+  {
+    id: "fopid-cruise-control",
+    status: "completed",
+    category: "Optimization / Control",
+    title: "Optimizing Vehicle Speed Under Disturbance",
+    tagline: "FOPID control tuned to balance tracking accuracy, overshoot, and settling time.",
+    impact: "Designed and optimized a fractional-order PID controller to balance vehicle speed tracking and transient-response performance.",
+    metrics: [["PRIMARY METRIC", "Transient response", "Simulation"], ["OPTIMIZER", "M-AHA", "Parameter search"]],
+    method: ["Vehicle modelling", "FOPID design", "M-AHA optimization"],
+    techContext: [["MATLAB", "Simulation"], ["Simulink", "System model"], ["FOPID", "Controller"], ["M-AHA", "Optimization"]],
+    problem: "Classical PID controllers for vehicle cruise control often struggle to balance fast response with stability under changing conditions. The project explored whether a Fractional-Order PID (FOPID) controller, tuned by a metaheuristic optimizer, could improve the transient response.",
+    approach: [
+      "Modeled the vehicle cruise-control system as a transfer function and defined the optimization objective.",
+      "Implemented a Fractional-Order PID controller with two additional tunable orders (λ, μ) for finer control over system response.",
+      "Used the Modified Artificial Hummingbird Algorithm (M-AHA) to search the FOPID parameter space and optimize controller gains.",
+      "Simulated the full system in MATLAB/Simulink to validate controller performance under different driving conditions."
+    ],
+    tech: ["MATLAB", "Simulink", "FOPID Control", "Metaheuristic Optimization"],
+    results: [
+      "Delivered as both a minor project and an extended major-project report on the same system.",
+      "Demonstrated how optimization techniques can be applied to classical control-engineering problems."
+    ],
+    github: "https://github.com/Sivaan66/FOPID-Cruise-Control_m-AHA",
     demo: null
   }
 ];
