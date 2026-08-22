@@ -16,18 +16,22 @@ export default function App() {
     <div className="min-h-screen">
       <AnimatedBackground />
       <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <Experience />
-        <Certifications />
-        <Blog />
-        <GitHubStats />
-        <Contact />
+      <main className="lg:pl-64">
+        <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-8">
+          <Hero />
+          <About />
+          <Skills />
+          <Projects />
+          <Experience />
+          <Certifications />
+          <Blog />
+          <GitHubStats />
+          <Contact />
+        </div>
       </main>
-      <Footer />
+      <div className="lg:pl-64">
+        <Footer />
+      </div>
     </div>
   );
 }
