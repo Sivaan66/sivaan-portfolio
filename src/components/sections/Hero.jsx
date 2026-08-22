@@ -43,9 +43,9 @@ export default function Hero({ onNavigate }) {
                   <h1 className="font-display text-3xl sm:text-4xl xl:text-5xl font-semibold tracking-tight text-ink leading-none">Turning data into <span className="text-signal">useful decisions.</span></h1>
                   <p className="mt-3 max-w-xl text-xs leading-5 text-ink-muted">Analytics, machine learning, and automation built around real business questions.</p>
                 </div>
-                <div className="hidden sm:block w-[150px] shrink-0 rounded-lg border border-surface-border bg-surface-panel/70 p-2.5">
+                <div className="hidden sm:block w-[150px] shrink-0 p-1">
                   <div className="flex items-center justify-between mb-2"><span className="font-mono text-[7px] uppercase tracking-wider text-ink-faint">Insight signal</span><TrendingUp size={11} className="text-signal" /></div>
-                  <div className="flex items-end gap-1 h-12 border-b border-surface-border">{SIGNAL_BARS.map((height, index) => <div key={index} className="flex-1 rounded-t-sm bg-signal/40 hover:bg-signal/70 transition-all" style={{ height: `${height}%` }} />)}</div>
+                  <div className="flex items-end gap-1 h-12">{SIGNAL_BARS.map((height, index) => <div key={index} className="flex-1 rounded-t-sm bg-signal/40 hover:bg-signal/70 transition-all" style={{ height: `${height}%` }} />)}</div>
                   <div className="flex justify-between mt-1.5"><span className="font-mono text-[7px] text-ink-faint">DATA</span><span className="font-mono text-[7px] text-signal">+18.4%</span></div>
                 </div>
               </div>
