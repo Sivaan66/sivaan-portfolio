@@ -80,6 +80,37 @@ const projects = [
     ],
     github: "https://github.com/Sivaan66/ETL-Automation-Pipeline",
     demo: null
+  },
+  {
+    id: "online-retail-rfm-cohort",
+    status: "completed",
+    category: "Customer Analytics / BI",
+    title: "Finding Which Customers Actually Drive Revenue",
+    tagline: "Cohort retention, RFM segmentation, product-value analysis, and Power BI reporting from transactional retail data.",
+    impact: "Identified a High Value segment representing 21.88% of customers but 74.15% of total revenue, turning transaction history into retention and customer-value decisions.",
+    metrics: [["CUSTOMERS", "5,942", "Analyzed"], ["NET REVENUE", "£16.29M", "Analysis period"], ["HIGH VALUE", "74.15%", "Revenue share"], ["M1 RETENTION", "~25%", "Average cohort"]],
+    method: ["Cohort retention analysis", "RFM segmentation", "Revenue methodology", "Power BI reporting"],
+    techContext: [["Python", "Analysis pipeline"], ["Pandas", "Cleaning & metrics"], ["RFM", "Customer segmentation"], ["Power BI", "Reporting layer"]],
+    problem: "The business needed to understand which customers and products actually drive revenue, how customer value changes over time, and how returns and cancellations should be reflected in reporting. The analysis was designed around customer value, retention, segmentation, product performance, and revenue quality.",
+    approach: [
+      "Cleaned and standardized the Online Retail II transaction data, including dates, quantities, prices, customer identifiers, duplicates, and missing values.",
+      "Investigated negative-quantity transactions instead of deleting them blindly, separating 19,493 return/cancellation-related records from 3,457 other negative operational adjustments.",
+      "Defined traceable revenue metrics using line amount = quantity × price, separating gross sales, return value, and net revenue.",
+      "Built cohort retention analysis by first-purchase month to measure how customers behaved after acquisition; average Month-1 retention was approximately 25%.",
+      "Calculated customer Recency, Frequency, and Monetary values and segmented 5,942 customers into High Value, Loyal, Potential, and At Risk groups.",
+      "Analyzed products purchased by High Value customers to compare revenue, units sold, and customer reach rather than relying on unit volume alone.",
+      "Built a two-page Power BI reporting layer covering revenue, returns, customer activity, monthly/weekly trends, and geographic revenue distribution."
+    ],
+    tech: ["Python", "Pandas", "Power BI", "RFM", "Cohort Analysis", "Data Cleaning"],
+    results: [
+      "High Value customers were 21.88% of the customer base but generated 74.15% of total revenue.",
+      "Average Month-1 cohort retention was approximately 25%, highlighting a major early-lifecycle drop-off after first purchase.",
+      "The At Risk segment was the largest by customer count at 30.31% but represented only 2.43% of total revenue, supporting selective rather than blanket retention spending.",
+      "High Value revenue was distributed across a broad product portfolio; the top 100 products accounted for 28.67% of High Value revenue.",
+      "The analysis showed that unit volume does not necessarily equal financial value: lower-volume, higher-price products can materially outperform high-volume items on revenue."
+    ],
+    github: "https://github.com/Sivaan66/Online_retails_CustomerCohort_And_RFM_Analysis_Python_PowerBI",
+    demo: null
   }
 ];
 
