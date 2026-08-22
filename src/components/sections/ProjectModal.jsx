@@ -3,63 +3,61 @@ import { X, Github, ExternalLink } from "lucide-react";
 import SkillBadge from "../ui/SkillBadge";
 
 export default function ProjectModal({ project, onClose }) {
-  // Close on Escape key
   useEffect(() => {
-  if (!project) return;
+    if (!project) return;
 
-  const handleKey = (e) => e.key === "Escape" && onClose();
-  window.addEventListener("keydown", handleKey);
-  document.body.style.overflow = "hidden";
-  return () => {
-    window.removeEventListener("keydown", handleKey);
-    document.body.style.overflow = "";
-  };
-}, [project, onClose]);
+    const handleKey = (e) => e.key === "Escape" && onClose();
+    window.addEventListener("keydown", handleKey);
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      window.removeEventListener("keydown", handleKey);
+      document.body.style.overflow = "";
+    };
+  }, [project, onClose]);
 
   if (!project) return null;
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-start sm:items-center justify-center p-4 sm:p-6 bg-black/70 backdrop-blur-sm overflow-y-auto"
+      className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-black/70 backdrop-blur-sm px-3 py-4 sm:px-6 sm:py-6"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
     >
       <div
-        className="glass-panel bg-surface-panel w-full max-w-2xl my-8 p-6 sm:p-8 relative animate-fade-up"
+        className="glass-panel bg-surface-panel w-full max-w-2xl max-h-[calc(100dvh-2rem)] sm:max-h-[calc(100dvh-3rem)] overflow-y-auto my-0 p-5 sm:p-8 relative animate-fade-up overscroll-contain"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
           aria-label="Close case study"
-          className="absolute top-5 right-5 text-ink-muted hover:text-signal transition-colors"
+          className="sticky top-0 ml-auto -mr-1 sm:-mr-2 z-10 flex items-center justify-center w-8 h-8 rounded-md bg-surface-panel/90 text-ink-muted hover:text-signal transition-colors"
         >
           <X size={20} />
         </button>
 
-        <p className="panel-label mb-2">{project.category}</p>
-        <h3 id="modal-title" className="font-display text-2xl font-semibold text-ink mb-6 pr-8">
-          {project.title}
-        </h3>
+        <div className="-mt-8 sm:-mt-8 pr-1">
+          <p className="panel-label mb-2">{project.category}</p>
+          <h3 id="modal-title" className="font-display text-2xl font-semibold text-ink mb-6 pr-8">
+            {project.title}
+          </h3>
+        </div>
 
         <div className="space-y-6">
           <div>
-            <p className="font-mono text-xs text-amber uppercase tracking-wide mb-2">
-              Problem
-            </p>
+            <p className="font-mono text-xs text-amber uppercase tracking-wide mb-2">Problem</p>
             <p className="text-sm text-ink-muted leading-relaxed">{project.problem}</p>
           </div>
 
           <div>
-            <p className="font-mono text-xs text-amber uppercase tracking-wide mb-2">
-              Approach
-            </p>
+            <p className="font-mono text-xs text-amber uppercase tracking-wide mb-2">Approach</p>
             <ul className="space-y-2">
               {project.approach.map((step, i) => (
                 <li key={i} className="text-sm text-ink-muted leading-relaxed flex gap-2">
                   <span className="text-signal shrink-0">→</span>
-                  {step}
+                  <span>{step}</span>
                 </li>
               ))}
             </ul>
@@ -67,14 +65,12 @@ export default function ProjectModal({ project, onClose }) {
 
           {project.results.length > 0 && (
             <div>
-              <p className="font-mono text-xs text-amber uppercase tracking-wide mb-2">
-                Results
-              </p>
+              <p className="font-mono text-xs text-amber uppercase tracking-wide mb-2">Results</p>
               <ul className="space-y-2">
                 {project.results.map((r, i) => (
                   <li key={i} className="text-sm text-ink-muted leading-relaxed flex gap-2">
                     <span className="text-signal shrink-0">✓</span>
-                    {r}
+                    <span>{r}</span>
                   </li>
                 ))}
               </ul>
@@ -82,9 +78,7 @@ export default function ProjectModal({ project, onClose }) {
           )}
 
           <div>
-            <p className="font-mono text-xs text-amber uppercase tracking-wide mb-3">
-              Technologies
-            </p>
+            <p className="font-mono text-xs text-amber uppercase tracking-wide mb-3">Technologies</p>
             <div className="flex flex-wrap gap-2">
               {project.tech.map((t) => (
                 <SkillBadge key={t}>{t}</SkillBadge>
@@ -94,21 +88,11 @@ export default function ProjectModal({ project, onClose }) {
         </div>
 
         <div className="flex flex-wrap gap-3 mt-8 pt-6 border-t border-base-border">
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 font-mono text-sm text-signal hover:text-signal-glow transition-colors"
-          >
+          <a href={project.github} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-mono text-sm text-signal hover:text-signal-glow transition-colors">
             <Github size={16} /> View on GitHub
           </a>
           {project.demo && (
-            <a
-              href={project.demo}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-mono text-sm text-ink-muted hover:text-ink transition-colors"
-            >
+            <a href={project.demo} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-mono text-sm text-ink-muted hover:text-ink transition-colors">
               <ExternalLink size={16} /> Live Demo
             </a>
           )}
