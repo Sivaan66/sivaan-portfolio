@@ -1,20 +1,118 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import {
+  BarChart3,
+  BriefcaseBusiness,
+  ChevronRight,
+  FileText,
+  Github,
+  Home,
+  Menu,
+  Settings,
+  UserRound,
+  X,
+} from "lucide-react";
 import useScrollSpy from "../../hooks/useScrollSpy";
 
-const NAV_LINKS = [
-  { id: "about", label: "About" },
-  { id: "skills", label: "Skills" },
-  { id: "projects", label: "Projects" },
-  { id: "experience", label: "Journey" },
-  { id: "certifications", label: "Certifications" },
-  { id: "blog", label: "Writing" },
-  { id: "contact", label: "Contact" },
+const NAV_GROUPS = [
+  {
+    label: "Workspace",
+    links: [
+      { id: "hero", label: "Overview", icon: Home },
+      { id: "about", label: "About", icon: UserRound },
+      { id: "skills", label: "Skills", icon: BarChart3 },
+    ],
+  },
+  {
+    label: "Portfolio",
+    links: [
+      { id: "projects", label: "Projects", icon: BriefcaseBusiness },
+      { id: "experience", label: "Journey", icon: ChevronRight },
+      { id: "certifications", label: "Certifications", icon: FileText },
+      { id: "blog", label: "Writing", icon: FileText },
+    ],
+  },
 ];
+
+const ALL_LINKS = NAV_GROUPS.flatMap((group) => group.links);
+
+function SidebarContent({ activeId, onNavigate }) {
+  return (
+    <>
+      <div className="px-5 py-5 border-b border-surface-border">
+        <button
+          onClick={() => onNavigate("hero")}
+          className="flex items-center gap-3 text-left w-full"
+          aria-label="Go to portfolio overview"
+        >
+          <span className="w-9 h-9 rounded-lg bg-signal/10 border border-signal/30 flex items-center justify-center font-mono text-sm font-semibold text-signal">
+            S
+          </span>
+          <span>
+            <span className="block font-display font-semibold text-ink tracking-tight">
+              sivaan.dev
+            </span>
+            <span className="block font-mono text-[10px] uppercase tracking-widest text-ink-faint mt-0.5">
+              Analytics Workspace
+            </span>
+          </span>
+        </button>
+      </div>
+
+      <div className="flex-1 px-3 py-5 overflow-y-auto">
+        {NAV_GROUPS.map((group) => (
+          <div key={group.label} className="mb-7 last:mb-0">
+            <p className="px-3 mb-2 font-mono text-[10px] uppercase tracking-widest text-ink-faint">
+              {group.label}
+            </p>
+            <ul className="space-y-1">
+              {group.links.map(({ id, label, icon: Icon }) => {
+                const active = activeId === id;
+                return (
+                  <li key={id}>
+                    <button
+                      onClick={() => onNavigate(id)}
+                      className={`w-full flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-all ${
+                        active
+                          ? "bg-signal text-surface font-medium shadow-[0_8px_24px_rgba(52,216,168,0.12)]"
+                          : "text-ink-muted hover:text-ink hover:bg-surface-raised"
+                      }`}
+                    >
+                      <Icon size={17} strokeWidth={active ? 2.2 : 1.8} />
+                      <span>{label}</span>
+                    </button>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <div className="border-t border-surface-border p-3">
+        <a
+          href="https://github.com/Sivaan66"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-ink-muted hover:text-ink hover:bg-surface-raised transition-colors"
+        >
+          <Github size={17} />
+          <span>GitHub</span>
+        </a>
+        <button
+          onClick={() => onNavigate("contact")}
+          className="w-full flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-ink-muted hover:text-ink hover:bg-surface-raised transition-colors"
+        >
+          <Settings size={17} />
+          <span>Contact</span>
+        </button>
+      </div>
+    </>
+  );
+}
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
-  const activeId = useScrollSpy(NAV_LINKS.map((l) => l.id));
+  const activeId = useScrollSpy(ALL_LINKS.map((link) => link.id));
 
   const handleLinkClick = (id) => {
     setOpen(false);
@@ -22,64 +120,38 @@ export default function Navbar() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-surface/80 backdrop-blur-md border-b border-base-border">
-      <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a
-          href="#hero"
-          onClick={(e) => {
-            e.preventDefault();
-            handleLinkClick("hero");
-          }}
-          className="font-mono text-signal font-medium tracking-wide"
-        >
-          sivaan<span className="text-ink-faint">.dev</span>
-        </a>
+    <>
+      <aside className="hidden lg:flex fixed inset-y-0 left-0 z-50 w-64 flex-col bg-surface/95 backdrop-blur-xl border-r border-surface-border">
+        <SidebarContent activeId={activeId} onNavigate={handleLinkClick} />
+      </aside>
 
-        {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map((link) => (
-            <li key={link.id}>
-              <button
-                onClick={() => handleLinkClick(link.id)}
-                className={`font-mono text-xs tracking-wide uppercase transition-colors duration-200 ${
-                  activeId === link.id
-                    ? "text-signal"
-                    : "text-ink-muted hover:text-ink"
-                }`}
-              >
-                {link.label}
-              </button>
-            </li>
-          ))}
-        </ul>
+      <header className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl border-b border-surface-border">
+        <nav className="h-16 px-4 flex items-center justify-between">
+          <button
+            onClick={() => handleLinkClick("hero")}
+            className="flex items-center gap-2.5"
+          >
+            <span className="w-8 h-8 rounded-lg bg-signal/10 border border-signal/30 flex items-center justify-center font-mono text-sm font-semibold text-signal">
+              S
+            </span>
+            <span className="font-mono text-sm text-ink">sivaan.dev</span>
+          </button>
+          <button
+            className="text-ink"
+            onClick={() => setOpen((value) => !value)}
+            aria-label={open ? "Close menu" : "Open menu"}
+            aria-expanded={open}
+          >
+            {open ? <X size={22} /> : <Menu size={22} />}
+          </button>
+        </nav>
 
-        {/* Mobile toggle */}
-        <button
-          className="md:hidden text-ink"
-          onClick={() => setOpen(!open)}
-          aria-label={open ? "Close menu" : "Open menu"}
-        >
-          {open ? <X size={22} /> : <Menu size={22} />}
-        </button>
-      </nav>
-
-      {/* Mobile menu */}
-      {open && (
-        <ul className="md:hidden flex flex-col gap-1 px-6 pb-6 bg-surface border-b border-base-border">
-          {NAV_LINKS.map((link) => (
-            <li key={link.id}>
-              <button
-                onClick={() => handleLinkClick(link.id)}
-                className={`w-full text-left py-2.5 font-mono text-sm tracking-wide uppercase ${
-                  activeId === link.id ? "text-signal" : "text-ink-muted"
-                }`}
-              >
-                {link.label}
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
-    </header>
+        {open && (
+          <div className="max-h-[calc(100vh-4rem)] overflow-y-auto border-t border-surface-border bg-surface px-3 py-4">
+            <SidebarContent activeId={activeId} onNavigate={handleLinkClick} />
+          </div>
+        )}
+      </header>
+    </>
   );
 }
