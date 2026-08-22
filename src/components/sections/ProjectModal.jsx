@@ -8,11 +8,9 @@ export default function ProjectModal({ project, onClose }) {
 
     const handleKey = (e) => e.key === "Escape" && onClose();
     window.addEventListener("keydown", handleKey);
-    document.body.style.overflow = "hidden";
 
     return () => {
       window.removeEventListener("keydown", handleKey);
-      document.body.style.overflow = "";
     };
   }, [project, onClose]);
 
@@ -20,20 +18,20 @@ export default function ProjectModal({ project, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-black/70 backdrop-blur-sm px-3 pt-[8vh] pb-[8vh] sm:px-6 sm:pt-[6vh] sm:pb-[6vh]"
+      className="fixed inset-0 z-[100] overflow-y-auto bg-black/70 backdrop-blur-sm px-3 pt-14 pb-14 sm:px-6 sm:pt-16 sm:pb-16"
       onClick={onClose}
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
     >
       <div
-        className="glass-panel bg-surface-panel w-full max-w-2xl max-h-[84vh] sm:max-h-[88vh] overflow-y-auto p-5 sm:p-8 relative animate-fade-up overscroll-contain"
+        className="glass-panel bg-surface-panel w-full max-w-2xl mx-auto relative animate-fade-up p-5 sm:p-8"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={onClose}
           aria-label="Close case study"
-          className="absolute top-3 right-3 z-10 flex items-center justify-center w-8 h-8 rounded-md bg-surface-panel/90 text-ink-muted hover:text-signal transition-colors"
+          className="absolute top-4 right-4 z-10 flex items-center justify-center w-8 h-8 rounded-md bg-surface-panel/90 text-ink-muted hover:text-signal transition-colors"
         >
           <X size={20} />
         </button>
