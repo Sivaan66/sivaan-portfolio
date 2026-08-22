@@ -1,20 +1,19 @@
-/**
- * SectionHeading — every section opens with a mono "panel label"
- * (e.g. "// 02_PROJECTS") followed by a large display heading.
- * This is the recurring structural device that ties sections together.
- */
 export default function SectionHeading({ index, label, title, description }) {
   return (
-    <div className="mb-12 max-w-2xl">
-      <p className="panel-label mb-3">
-        {index && `// ${index}_`}
-        {label}
-      </p>
-      <h2 className="font-display text-3xl sm:text-4xl font-semibold text-ink mb-4">
-        {title}
-      </h2>
+    <div className="mb-8 border-b border-surface-border pb-5 flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+      <div>
+        <p className="panel-label mb-2">
+          {index && `${index} · `}
+          {label}
+        </p>
+        <h2 className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-ink">
+          {title}
+        </h2>
+      </div>
       {description && (
-        <p className="text-ink-muted leading-relaxed">{description}</p>
+        <p className="max-w-xl text-sm leading-6 text-ink-muted md:text-right">
+          {description}
+        </p>
       )}
     </div>
   );
