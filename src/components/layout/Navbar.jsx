@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import {
   BarChart3,
   BriefcaseBusiness,
@@ -35,8 +35,14 @@ function SidebarContent({ activeId, onNavigate }) {
   return (
     <>
       <div className="px-5 py-5 border-b border-surface-border">
-        <button onClick={() => onNavigate("hero")} className="flex items-center gap-3 text-left w-full" aria-label="Go to portfolio overview">
-          <span className="w-9 h-9 rounded-lg bg-signal/10 border border-signal/30 flex items-center justify-center font-mono text-sm font-semibold text-signal">S</span>
+        <button
+          onClick={() => onNavigate("hero")}
+          className="flex items-center gap-3 text-left w-full"
+          aria-label="Go to portfolio overview"
+        >
+          <span className="w-9 h-9 rounded-lg bg-signal/10 border border-signal/30 flex items-center justify-center font-mono text-sm font-semibold text-signal">
+            S
+          </span>
           <span>
             <span className="block font-display font-semibold text-ink tracking-tight">sivaan.dev</span>
             <span className="block font-mono text-[10px] uppercase tracking-widest text-ink-faint mt-0.5">Analytics Workspace</span>
@@ -74,7 +80,11 @@ function SidebarContent({ activeId, onNavigate }) {
           <Github size={17} />
           <span>GitHub</span>
         </a>
-        <button onClick={() => onNavigate("contact")} className={`w-full flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors ${activeId === "contact" ? "bg-signal text-surface font-medium" : "text-ink-muted hover:text-ink hover:bg-surface-raised"}`} aria-current={activeId === "contact" ? "page" : undefined}>
+        <button
+          onClick={() => onNavigate("contact")}
+          className={`w-full flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors ${activeId === "contact" ? "bg-signal text-surface font-medium" : "text-ink-muted hover:text-ink hover:bg-surface-raised"}`}
+          aria-current={activeId === "contact" ? "page" : undefined}
+        >
           <Settings size={17} />
           <span>Contact</span>
         </button>
@@ -83,52 +93,21 @@ function SidebarContent({ activeId, onNavigate }) {
   );
 }
 
-export default function Navbar({ activeId, onNavigate, onVisibilityChange }) {
+export default function Navbar({ activeId, onNavigate }) {
   const [open, setOpen] = useState(false);
-  const [visible, setVisible] = useState(true);
-  const lastScrollY = useRef(0);
-  const ticking = useRef(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (ticking.current) return;
-      ticking.current = true;
-      requestAnimationFrame(() => {
-        const currentY = Math.max(window.scrollY, 0);
-        const delta = currentY - lastScrollY.current;
-
-        if (currentY < 24 || delta < -6) {
-          setVisible(true);
-          onVisibilityChange?.(true);
-        } else if (delta > 6 && !open) {
-          setVisible(false);
-          onVisibilityChange?.(false);
-        }
-
-        lastScrollY.current = currentY;
-        ticking.current = false;
-      });
-    };
-
-    lastScrollY.current = window.scrollY;
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [onVisibilityChange, open]);
 
   const handleNavigate = (id) => {
     setOpen(false);
-    setVisible(true);
-    onVisibilityChange?.(true);
     onNavigate(id);
   };
 
   return (
     <>
-      <aside className={`hidden lg:flex fixed inset-y-0 left-0 z-50 w-64 flex-col bg-surface/95 backdrop-blur-xl border-r border-surface-border transition-transform duration-300 ease-out ${visible ? "translate-x-0" : "-translate-x-full"}`}>
+      <aside className="hidden lg:flex fixed inset-y-0 left-0 z-50 w-64 flex-col bg-surface/95 backdrop-blur-xl border-r border-surface-border">
         <SidebarContent activeId={activeId} onNavigate={handleNavigate} />
       </aside>
 
-      <header className={`lg:hidden fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl border-b border-surface-border transition-transform duration-300 ease-out ${visible ? "translate-y-0" : "-translate-y-full"}`}>
+      <header className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl border-b border-surface-border">
         <nav className="h-16 px-4 flex items-center justify-between">
           <button onClick={() => handleNavigate("hero")} className="flex items-center gap-2.5" aria-label="Go to portfolio overview">
             <span className="w-8 h-8 rounded-lg bg-signal/10 border border-signal/30 flex items-center justify-center font-mono text-sm font-semibold text-signal">S</span>
