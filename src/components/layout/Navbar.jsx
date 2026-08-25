@@ -35,14 +35,8 @@ function SidebarContent({ activeId, onNavigate }) {
   return (
     <>
       <div className="px-5 py-5 border-b border-surface-border">
-        <button
-          onClick={() => onNavigate("hero")}
-          className="flex items-center gap-3 text-left w-full"
-          aria-label="Go to portfolio overview"
-        >
-          <span className="w-9 h-9 rounded-lg bg-signal/10 border border-signal/30 flex items-center justify-center font-mono text-sm font-semibold text-signal">
-            S
-          </span>
+        <button onClick={() => onNavigate("hero")} className="flex items-center gap-3 text-left w-full" aria-label="Go to portfolio overview">
+          <span className="w-9 h-9 rounded-lg bg-signal/10 border border-signal/30 flex items-center justify-center font-mono text-sm font-semibold text-signal">S</span>
           <span>
             <span className="block font-display font-semibold text-ink tracking-tight">sivaan.dev</span>
             <span className="block font-mono text-[10px] uppercase tracking-widest text-ink-faint mt-0.5">Analytics Workspace</span>
@@ -59,11 +53,7 @@ function SidebarContent({ activeId, onNavigate }) {
                 const active = activeId === id;
                 return (
                   <li key={id}>
-                    <button
-                      onClick={() => onNavigate(id)}
-                      aria-current={active ? "page" : undefined}
-                      className={`w-full flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-all ${active ? "bg-signal text-surface font-medium shadow-[0_8px_24px_rgba(52,216,168,0.12)]" : "text-ink-muted hover:text-ink hover:bg-surface-raised"}`}
-                    >
+                    <button onClick={() => onNavigate(id)} aria-current={active ? "page" : undefined} className={`w-full flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-all ${active ? "bg-signal text-surface font-medium shadow-[0_8px_24px_rgba(52,216,168,0.12)]" : "text-ink-muted hover:text-ink hover:bg-surface-raised"}`}>
                       <Icon size={17} strokeWidth={active ? 2.2 : 1.8} />
                       <span>{label}</span>
                     </button>
@@ -80,11 +70,7 @@ function SidebarContent({ activeId, onNavigate }) {
           <Github size={17} />
           <span>GitHub</span>
         </a>
-        <button
-          onClick={() => onNavigate("contact")}
-          className={`w-full flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors ${activeId === "contact" ? "bg-signal text-surface font-medium" : "text-ink-muted hover:text-ink hover:bg-surface-raised"}`}
-          aria-current={activeId === "contact" ? "page" : undefined}
-        >
+        <button onClick={() => onNavigate("contact")} className={`w-full flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm transition-colors ${activeId === "contact" ? "bg-signal text-surface font-medium" : "text-ink-muted hover:text-ink hover:bg-surface-raised"}`} aria-current={activeId === "contact" ? "page" : undefined}>
           <Settings size={17} />
           <span>Contact</span>
         </button>
@@ -107,7 +93,7 @@ export default function Navbar({ activeId, onNavigate }) {
         <SidebarContent activeId={activeId} onNavigate={handleNavigate} />
       </aside>
 
-      <header className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl border-b border-surface-border">
+      <header className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl border-b border-surface-border shadow-[0_4px_18px_rgba(0,0,0,0.18)]">
         <nav className="h-16 px-4 flex items-center justify-between">
           <button onClick={() => handleNavigate("hero")} className="flex items-center gap-2.5" aria-label="Go to portfolio overview">
             <span className="w-8 h-8 rounded-lg bg-signal/10 border border-signal/30 flex items-center justify-center font-mono text-sm font-semibold text-signal">S</span>
