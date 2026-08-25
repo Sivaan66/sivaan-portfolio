@@ -51,7 +51,7 @@ export default function Hero({ onNavigate }) {
       <div className="flex items-center justify-between border-b border-surface-border pb-3 mb-4">
         <div>
           <p className="panel-label">// PORTFOLIO_OVERVIEW</p>
-          <p className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-ink mt-1">Sibananda Pathy</p>
+          <p className="font-display text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-ink mt-1 leading-none">Sibananda Pathy</p>
         </div>
         <div className="flex items-center gap-2">
           <span className="hidden sm:inline-flex items-center gap-2 rounded-full border border-signal/25 bg-signal/5 px-2.5 py-1 font-mono text-[9px] text-signal">
@@ -80,7 +80,7 @@ export default function Hero({ onNavigate }) {
                 <p className="font-mono text-[9px] uppercase tracking-[0.22em] text-signal mb-2">
                   DATA ANALYST · ML / AI BUILDER
                 </p>
-                <h1 className="font-display text-3xl sm:text-4xl xl:text-5xl font-semibold tracking-tight text-ink leading-none">
+                <h1 className="font-display text-2xl sm:text-3xl xl:text-4xl font-semibold tracking-tight text-ink leading-none">
                   Turning data into <span className="text-signal">useful decisions.</span>
                 </h1>
                 <p className="mt-3 max-w-xl text-xs leading-5 text-ink-muted">
