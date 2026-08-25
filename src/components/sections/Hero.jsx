@@ -1,17 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  Activity,
-  ArrowUpRight,
-  BarChart3,
-  BriefcaseBusiness,
-  Database,
-  Download,
-  Github,
-  Layers3,
-  Mail,
-  Sparkles,
-  Terminal,
-} from "lucide-react";
+import { Activity, ArrowUpRight, BarChart3, BriefcaseBusiness, Database, Download, Github, Layers3, Mail, Sparkles, Terminal } from "lucide-react";
 import Button from "../ui/Button";
 
 const TYPED_LINE = "portfolio --overview";
@@ -63,7 +51,7 @@ export default function Hero({ onNavigate }) {
       <div className="flex items-center justify-between border-b border-surface-border pb-3 mb-4">
         <div>
           <p className="panel-label">// PORTFOLIO_OVERVIEW</p>
-          <p className="text-[10px] text-ink-muted mt-0.5">Professional analytics snapshot</p>
+          <p className="font-display text-2xl sm:text-3xl font-semibold tracking-tight text-ink mt-1">Sibananda Pathy</p>
         </div>
         <div className="flex items-center gap-2">
           <span className="hidden sm:inline-flex items-center gap-2 rounded-full border border-signal/25 bg-signal/5 px-2.5 py-1 font-mono text-[9px] text-signal">
