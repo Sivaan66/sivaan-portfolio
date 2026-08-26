@@ -48,15 +48,12 @@ export default function Hero({ onNavigate }) {
 
   return (
     <section className="py-1 lg:py-2">
-      <div className="flex items-center justify-between border-b border-surface-border pb-3 mb-4">
-        <div>
+      <div className="flex items-end justify-between border-b border-surface-border pb-3 mb-4 gap-4">
+        <div className="min-w-0">
           <p className="panel-label">// PORTFOLIO_OVERVIEW</p>
-          <p className="font-display text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-ink mt-1 leading-none">Sibananda Pathy</p>
+          <p className="font-display text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight text-ink mt-2 leading-none">Sibananda Pathy</p>
         </div>
-        <div className="flex items-center gap-2">
-          <span className="hidden sm:inline-flex items-center gap-2 rounded-full border border-signal/25 bg-signal/5 px-2.5 py-1 font-mono text-[9px] text-signal">
-            <span className="h-1.5 w-1.5 rounded-full bg-signal animate-pulse-dot" /> Available
-          </span>
+        <div className="flex items-center gap-2 shrink-0 pb-0.5">
           <a
             href={`${import.meta.env.BASE_URL}resume.pdf`}
             download="Sivaan_Resume.pdf"
@@ -64,6 +61,9 @@ export default function Hero({ onNavigate }) {
           >
             <Download size={12} /> Resume
           </a>
+          <span className="hidden sm:inline-flex items-center gap-2 rounded-full border border-signal/25 bg-signal/5 px-2.5 py-1 font-mono text-[9px] text-signal">
+            <span className="h-1.5 w-1.5 rounded-full bg-signal animate-pulse-dot" /> Available
+          </span>
         </div>
       </div>
 
@@ -90,15 +90,9 @@ export default function Hero({ onNavigate }) {
             )}
           </div>
           <div className="relative mt-5 flex flex-wrap items-center gap-1.5">
-            <Button onClick={() => onNavigate?.("projects")} icon={ArrowUpRight} className="!px-3 !py-1.5 !rounded-md !text-[10px] !gap-1.5">
-              Explore Work
-            </Button>
-            <Button onClick={() => onNavigate?.("contact")} variant="ghost" icon={Mail} className="!px-3 !py-1.5 !rounded-md !text-[10px] !gap-1.5">
-              Contact
-            </Button>
-            <a href="https://github.com/Sivaan66" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 font-mono text-[10px] text-ink-muted hover:text-ink">
-              <Github size={12} /> GitHub
-            </a>
+            <Button onClick={() => onNavigate?.("projects")} icon={ArrowUpRight} className="!px-3 !py-1.5 !rounded-md !text-[10px] !gap-1.5">Explore Work</Button>
+            <Button onClick={() => onNavigate?.("contact")} variant="ghost" icon={Mail} className="!px-3 !py-1.5 !rounded-md !text-[10px] !gap-1.5">Contact</Button>
+            <a href="https://github.com/Sivaan66" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 rounded-md px-2.5 py-1.5 font-mono text-[10px] text-ink-muted hover:text-ink"><Github size={12} /> GitHub</a>
           </div>
         </div>
 
@@ -110,9 +104,7 @@ export default function Hero({ onNavigate }) {
                 <p className="font-display text-xl font-semibold text-ink">{value}</p>
                 <p className="text-[9px] text-ink-muted mt-0.5">{detail}</p>
               </div>
-              <div className="h-8 w-8 rounded-lg bg-signal/5 border border-signal/15 flex items-center justify-center shrink-0">
-                <Icon size={14} className="text-signal" />
-              </div>
+              <div className="h-8 w-8 rounded-lg bg-signal/5 border border-signal/15 flex items-center justify-center shrink-0"><Icon size={14} className="text-signal" /></div>
             </div>
           ))}
         </div>
@@ -121,55 +113,27 @@ export default function Hero({ onNavigate }) {
       <div className="mt-3 grid lg:grid-cols-[1.15fr_0.85fr] gap-3">
         <div className="glass-panel p-4 sm:p-5">
           <div className="flex items-center justify-between mb-4">
-            <div>
-              <p className="panel-label">EVIDENCE PROFILE</p>
-              <p className="text-[9px] text-ink-muted mt-0.5">What the current portfolio demonstrates</p>
-            </div>
+            <div><p className="panel-label">EVIDENCE PROFILE</p><p className="text-[9px] text-ink-muted mt-0.5">What the current portfolio demonstrates</p></div>
             <Activity size={15} className="text-signal" />
           </div>
           <div className="space-y-3">
-            {EVIDENCE.map(([name, detail, project]) => (
-              <div key={name} className="grid grid-cols-[130px_1fr_auto] items-center gap-2 border-b border-surface-border/60 pb-2 last:border-b-0 last:pb-0">
-                <span className="text-[11px] font-medium text-ink">{name}</span>
-                <span className="text-[9px] text-ink-muted">{detail}</span>
-                <span className="font-mono text-[7px] uppercase tracking-wider text-signal">{project}</span>
-              </div>
-            ))}
+            {EVIDENCE.map(([name, detail, project]) => <div key={name} className="grid grid-cols-[130px_1fr_auto] items-center gap-2 border-b border-surface-border/60 pb-2 last:border-b-0 last:pb-0"><span className="text-[11px] font-medium text-ink">{name}</span><span className="text-[9px] text-ink-muted">{detail}</span><span className="font-mono text-[7px] uppercase tracking-wider text-signal">{project}</span></div>)}
           </div>
         </div>
 
         <div className="glass-panel p-4 sm:p-5">
           <div className="flex items-center justify-between mb-4">
-            <div>
-              <p className="panel-label">ANALYTICS STACK</p>
-              <p className="text-[9px] text-ink-muted mt-0.5">Used across current projects</p>
-            </div>
+            <div><p className="panel-label">ANALYTICS STACK</p><p className="text-[9px] text-ink-muted mt-0.5">Used across current projects</p></div>
             <Sparkles size={15} className="text-signal" />
           </div>
           <div className="grid grid-cols-2 gap-1.5">
-            {STACK.map(([name, role]) => (
-              <div key={name} className="rounded-md border border-surface-border bg-surface-panel/60 px-2.5 py-2">
-                <span className="block text-[10px] text-ink">{name}</span>
-                <span className="block font-mono text-[7px] uppercase text-ink-faint mt-0.5">{role}</span>
-              </div>
-            ))}
+            {STACK.map(([name, role]) => <div key={name} className="rounded-md border border-surface-border bg-surface-panel/60 px-2.5 py-2"><span className="block text-[10px] text-ink">{name}</span><span className="block font-mono text-[7px] uppercase text-ink-faint mt-0.5">{role}</span></div>)}
           </div>
         </div>
       </div>
 
       <div className="mt-3 grid grid-cols-2 lg:grid-cols-4 gap-2.5">
-        {[
-          ["01", "Business Analysis", "Question → insight"],
-          ["02", "Data Work", "Clean · explore · model"],
-          ["03", "Explainability", "Understand the model"],
-          ["04", "Automation", "Build repeatable systems"],
-        ].map(([number, title, detail]) => (
-          <div key={number} className="border-t border-surface-border pt-2">
-            <p className="font-mono text-[8px] text-signal mb-0.5">{number}</p>
-            <p className="text-[10px] font-medium text-ink">{title}</p>
-            <p className="text-[9px] text-ink-muted mt-0.5">{detail}</p>
-          </div>
-        ))}
+        {[["01", "Business Analysis", "Question → insight"], ["02", "Data Work", "Clean · explore · model"], ["03", "Explainability", "Understand the model"], ["04", "Automation", "Build repeatable systems"]].map(([number, title, detail]) => <div key={number} className="border-t border-surface-border pt-2"><p className="font-mono text-[8px] text-signal mb-0.5">{number}</p><p className="text-[10px] font-medium text-ink">{title}</p><p className="text-[9px] text-ink-muted mt-0.5">{detail}</p></div>)}
       </div>
     </section>
   );
