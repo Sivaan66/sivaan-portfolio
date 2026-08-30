@@ -20,9 +20,12 @@ const projects = [
     ],
     tech: ["Python", "Pandas", "NumPy", "Scikit-learn", "SHAP", "Feature Engineering"],
     results: [
-      "Optimized specifically for recall on the risky-customer class to minimize missed delinquencies.",
-      "Used SHAP explainability to make flagged predictions auditable rather than treating the model as a black box.",
-      "Designed with human oversight and fairness/compliance considerations around model-driven decisions."
+      "Held-out test accuracy was 0.85 across 125 test accounts.",
+      "Delinquent-class precision was 1.00, but recall was only 0.05 — the model correctly identified 1 of the 20 truly delinquent test accounts.",
+      "Delinquent-class F1-score was 0.10, exposing the weakness hidden by the 0.85 overall accuracy.",
+      "ROC-AUC was 0.49 on the held-out test set, indicating weak ranking performance in this first-pass model.",
+      "The recall-oriented risk threshold (~0.20 rather than 0.50) flagged 79 of 125 test accounts as risk-sensitive for broader review coverage.",
+      "The results support keeping human review in the workflow rather than treating the current model as an autonomous collections decision-maker."
     ],
     github: "https://github.com/Sivaan66/Customer-Delinquency-Risk-Analysis",
     demo: null
@@ -48,10 +51,12 @@ const projects = [
     ],
     tech: ["Python", "Pandas", "NumPy", "Requests", "Kaggle API", "Jupyter"],
     results: [
-      "Created a repeatable Extract → Transform → Load workflow rather than a one-off data-cleaning notebook.",
-      "Made reruns idempotent so duplicate observations are removed instead of accumulating.",
-      "Added a mock-first testing layer so pipeline functions can be validated without depending on the live API.",
-      "Produced a published Paris flood-monitoring dataset with station, date, water-level, alert, quality, and validation fields."
+      "Processed daily maximum water-level observations for 5 configured hydrometric stations around Paris.",
+      "Produced one standardized monitoring dataset with station, date, water level, flood-alert, validation, quality, production-method, and location fields.",
+      "Incremental extraction ensured reruns request only observations after the latest date already present, avoiding unnecessary historical API retrieval.",
+      "Idempotent loading deduplicated repeated observations so rerunning the pipeline does not accumulate duplicate rows.",
+      "The full pipeline was mock-tested before live API execution, allowing extraction and transformation logic to be validated offline.",
+      "The processed dataset was published as a versioned Kaggle dataset, completing the Extract → Transform → Load → Publish workflow."
     ],
     github: "https://github.com/Sivaan66/ETL-Automation-Pipeline",
     demo: null
@@ -78,11 +83,13 @@ const projects = [
     ],
     tech: ["Python", "Pandas", "Power BI", "RFM", "Cohort Analysis", "Data Cleaning"],
     results: [
-      "High Value customers were 21.88% of the customer base but generated 74.15% of total revenue.",
-      "Average Month-1 cohort retention was approximately 25%, highlighting a major early-lifecycle drop-off after first purchase.",
-      "The At Risk segment was the largest by customer count at 30.31% but represented only 2.43% of total revenue, supporting selective rather than blanket retention spending.",
-      "High Value revenue was distributed across a broad product portfolio; the top 100 products accounted for 28.67% of High Value revenue.",
-      "The analysis showed that unit volume does not necessarily equal financial value: lower-volume, higher-price products can materially outperform high-volume items on revenue."
+      "Analyzed 5,942 customers across the transaction history, with total calculated revenue of £16,289,991.29.",
+      "The High Value segment contained 1,300 customers (21.88%) but generated £12,078,942.30, equal to 74.15% of total revenue.",
+      "Average Month-1 cohort retention was ~25.0%; the December 2009 cohort was strongest at approximately 37.5% Month-1 retention.",
+      "The At Risk segment was the largest at 1,801 customers (30.31%) but contributed only 2.43% of total revenue (£395,897.24).",
+      "High Value product analysis covered approximately 5,184 product-level records, and the top 100 products represented 28.67% of High Value revenue.",
+      "The analysis quantified 22,950 negative-quantity records: 19,493 linked to C-prefixed returns/cancellations and 3,457 other operational negative adjustments.",
+      "The revenue analysis showed that volume and value can diverge: WORLD WAR 2 GLIDERS ASSTD DESIGNS sold 66,059 units for £15,736.37, while REGENCY CAKESTAND 3 TIER sold 18,770 units for £213,890.50."
     ],
     github: "https://github.com/Sivaan66/Online_retails_CustomerCohort_And_RFM_Analysis_Python_PowerBI",
     demo: null
@@ -106,8 +113,13 @@ const projects = [
     ],
     tech: ["MATLAB", "Simulink", "FOPID Control", "Metaheuristic Optimization"],
     results: [
-      "Delivered as both a minor project and an extended major-project report on the same system.",
-      "Demonstrated how optimization techniques can be applied to classical control-engineering problems."
+      "Recorded a sample rise time of approximately 0.66 seconds in the reported simulation results.",
+      "Recorded a sample settling time of approximately 1.04 seconds in the reported simulation results.",
+      "The reported step response shows minimal overshoot while maintaining the target-speed response.",
+      "The Bode-plot analysis reports a phase margin of 72°, indicating a stable closed-loop response in the documented test.",
+      "The reported gain margin is infinite, indicating no finite gain-crossover instability point in the documented Bode analysis.",
+      "The repository includes the step-response plot, Bode plot, Simulink model, and full technical report as direct evidence of the simulated controller results.",
+      "The project reports the optimized FOPID/m-AHA approach as outperforming traditional PID and other metaheuristic methods on the cited benchmark comparison."
     ],
     github: "https://github.com/Sivaan66/FOPID-Cruise-Control_m-AHA",
     demo: null
