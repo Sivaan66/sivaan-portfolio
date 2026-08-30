@@ -6,16 +6,13 @@ const certifications = [
     date: "August 16, 2026",
     type: "Certificate of Internship Completion",
     summary: "Completed a Data Analytics Internship at InAmigos Foundation from August 2, 2026 to August 16, 2026.",
-    achievements: [
-      "Successfully completed the Data Analytics Internship at InAmigos Foundation.",
-      "Internship period: August 2, 2026 to August 16, 2026."
-    ],
+    achievements: ["Successfully completed the Data Analytics Internship at InAmigos Foundation.", "Internship period: August 2, 2026 to August 16, 2026."],
     skills: ["Data Analytics"],
     credentialLabel: "Certificate record",
     credential: "Certificate of Internship Completion",
     verification: null,
-    certificatePdf: "/certificates/inamigos-data-analytics.pdf",
-    certificateNote: "Original certificate PDF should be placed at public/certificates/inamigos-data-analytics.pdf.",
+    certificatePdf: "/certificates/InAmigos%20Data%20Analytics%20certificate%20of%20Completion.pdf",
+    certificateNote: "Original certificate PDF from InAmigos Foundation."
   },
   {
     id: "kaggle-pandas",
@@ -24,15 +21,13 @@ const certifications = [
     date: "July 25, 2026",
     type: "Certificate of Completion",
     summary: "Completed Kaggle's Pandas course, demonstrating focused learning in the Pandas library.",
-    achievements: [
-      "Completed the Pandas course on Kaggle.",
-      "Earned a formal Certificate of Completion dated July 25, 2026."
-    ],
+    achievements: ["Completed the Pandas course on Kaggle.", "Earned a formal Certificate of Completion dated July 25, 2026."],
     skills: ["Pandas"],
     credentialLabel: "Certificate credential",
     credential: "No credential ID is shown on the provided certificate image.",
     verification: null,
-    certificateNote: "Certificate image provided by Sivaan and reproduced as the certificate record in this portfolio.",
+    certificatePdf: "/certificates/Sibananda%20Pathy%20-%20Pandas.png",
+    certificateNote: "Certificate image stored in the portfolio repository."
   },
   {
     id: "kaggle-intro-programming",
@@ -41,15 +36,13 @@ const certifications = [
     date: "July 24, 2026",
     type: "Certificate of Completion",
     summary: "Completed Kaggle's Introduction to Programming course and built a formal programming foundation.",
-    achievements: [
-      "Completed the Intro to Programming course on Kaggle.",
-      "Earned a formal Certificate of Completion dated July 24, 2026."
-    ],
+    achievements: ["Completed the Intro to Programming course on Kaggle.", "Earned a formal Certificate of Completion dated July 24, 2026."],
     skills: ["Programming fundamentals"],
     credentialLabel: "Certificate credential",
     credential: "No credential ID is shown on the provided certificate image.",
     verification: null,
-    certificateNote: "Certificate image provided by Sivaan and reproduced as the certificate record in this portfolio.",
+    certificatePdf: "/certificates/Sibananda%20Pathy%20-%20Intro%20to%20Programming.png",
+    certificateNote: "Certificate image stored in the portfolio repository."
   },
   {
     id: "deloitte-data-analytics",
@@ -58,17 +51,14 @@ const certifications = [
     date: "July 31, 2025",
     type: "Certificate of Completion",
     summary: "Completed practical tasks in Data analysis and Forensic technology during Deloitte's July 2025 job simulation.",
-    achievements: [
-      "Completed the Deloitte Data Analytics Job Simulation.",
-      "Worked through practical tasks in Data analysis and Forensic technology.",
-      "Completed the simulation in July 2025."
-    ],
+    achievements: ["Completed the Deloitte Data Analytics Job Simulation.", "Worked through practical tasks in Data analysis and Forensic technology.", "Completed the simulation in July 2025."],
     skills: ["Data analysis", "Forensic technology"],
     credentialLabel: "Verification details",
     credential: "Enrolment Verification Code: jZKuhRDarihovhFmx",
     additionalCredential: "User Verification Code: EPsCepuXiamuSjhJy",
     verification: "https://www.theforage.com/simulations/deloitte-au/data-analytics-s5zy/completed",
-    certificateNote: "Issued by Forage; the certificate names Tina McCreery, Chief Human Resources Officer, Deloitte.",
+    certificatePdf: "/certificates/Deloitte%20AUS%20Analytics%20Certificate.pdf",
+    certificateNote: "Original Deloitte/Forage certificate PDF stored in the portfolio repository."
   },
   {
     id: "linkedin-career-skills-data-analytics",
@@ -77,15 +67,13 @@ const certifications = [
     date: "August 13, 2025",
     type: "Course Certificate",
     summary: "Completed a focused LinkedIn Learning course covering Data Analytics and technology-career skills.",
-    achievements: [
-      "Completed the course on August 13, 2025.",
-      "Completed 2 hours 21 minutes of course learning."
-    ],
+    achievements: ["Completed the course on August 13, 2025.", "Completed 2 hours 21 minutes of course learning."],
     skills: ["Data Analytics", "Tech Career Skills"],
     credentialLabel: "Certificate ID",
     credential: "b06960ca2b3672ca580fd9a8cc2bc1e50617086cfec6f0215046566ac13007e5",
     verification: "https://www.linkedin.com/learning/certificates/b06960ca2b3672ca580fd9a8cc2bc1e50617086cfec6f0215046566ac13007e5",
-    certificateNote: "Certificate issued under the LinkedIn Learning course record; the provided certificate names Shea Hanson, Head of Learning Content Strategy.",
+    certificatePdf: "/certificates/CertificateOfCompletion_Introduction%20to%20Career%20Skills%20in%20Data%20Analytics.pdf",
+    certificateNote: "Original LinkedIn Learning certificate PDF stored in the portfolio repository."
   }
 ];
 
