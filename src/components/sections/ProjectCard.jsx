@@ -35,12 +35,12 @@ export default function ProjectCard({ project, onOpen }) {
                 <Icon size={12} className="text-signal" />
                 <span className="font-mono text-[8px] uppercase tracking-[0.15em] text-ink-faint">{isPlanned ? "Project direction" : "Analytical evidence"}</span>
               </div>
-              <div className={`grid ${project.metrics.length > 2 ? "grid-cols-2 sm:grid-cols-4" : "grid-cols-2"} gap-3`}>
+              <div className={`grid ${project.metrics.length > 2 ? "grid-cols-2 lg:grid-cols-4" : "grid-cols-2"} gap-3`}>
                 {project.metrics.map(([label, value, context]) => (
-                  <div key={label}>
-                    <p className="font-mono text-[7px] uppercase tracking-wider text-ink-faint">{label}</p>
-                    <p className="font-display text-sm font-semibold text-signal mt-0.5">{value}</p>
-                    <p className="text-[8px] text-ink-muted mt-0.5">{context}</p>
+                  <div key={label} className="min-w-0">
+                    <p className="font-mono text-[7px] uppercase tracking-wider text-ink-faint break-words">{label}</p>
+                    <p className="font-display text-sm font-semibold text-signal mt-0.5 break-words leading-tight">{value}</p>
+                    <p className="text-[8px] text-ink-muted mt-0.5 break-words leading-4">{context}</p>
                   </div>
                 ))}
               </div>
@@ -62,9 +62,9 @@ export default function ProjectCard({ project, onOpen }) {
             <p className="font-mono text-[8px] uppercase tracking-[0.15em] text-ink-faint mb-2">HOW THE TOOLS WERE USED</p>
             <div className="grid grid-cols-2 gap-x-4 gap-y-1.5">
               {project.techContext.map(([tool, role]) => (
-                <div key={tool} className="flex items-center justify-between gap-2 border-b border-surface-border/60 pb-1">
-                  <span className="text-[9px] text-ink">{tool}</span>
-                  <span className="font-mono text-[7px] text-ink-faint text-right">{role}</span>
+                <div key={tool} className="flex items-center justify-between gap-2 border-b border-surface-border/60 pb-1 min-w-0">
+                  <span className="text-[9px] text-ink truncate">{tool}</span>
+                  <span className="font-mono text-[7px] text-ink-faint text-right break-words">{role}</span>
                 </div>
               ))}
             </div>
