@@ -1,5 +1,23 @@
 const certifications = [
   {
+    id: "inamigos-data-analytics",
+    title: "Data Analytics Internship",
+    issuer: "InAmigos Foundation",
+    date: "August 16, 2026",
+    type: "Certificate of Internship Completion",
+    summary: "Completed a Data Analytics Internship at InAmigos Foundation from August 2, 2026 to August 16, 2026.",
+    achievements: [
+      "Successfully completed the Data Analytics Internship at InAmigos Foundation.",
+      "Internship period: August 2, 2026 to August 16, 2026."
+    ],
+    skills: ["Data Analytics"],
+    credentialLabel: "Certificate record",
+    credential: "Certificate of Internship Completion",
+    verification: null,
+    certificatePdf: "/certificates/inamigos-data-analytics.pdf",
+    certificateNote: "Original certificate PDF should be placed at public/certificates/inamigos-data-analytics.pdf.",
+  },
+  {
     id: "kaggle-pandas",
     title: "Pandas",
     issuer: "Kaggle",
