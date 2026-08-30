@@ -11,7 +11,8 @@ const certifications = [
     credentialLabel: "Certificate record",
     credential: "Certificate of Internship Completion",
     verification: null,
-    certificatePdf: "/certificates/InAmigos%20Data%20Analytics%20certificate%20of%20Completion.pdf",
+    certificateFile: "certificates/InAmigos Data Analytics certificate of Completion.pdf",
+    certificateMime: "application/pdf",
     certificateNote: "Original certificate PDF from InAmigos Foundation."
   },
   {
@@ -26,7 +27,8 @@ const certifications = [
     credentialLabel: "Certificate credential",
     credential: "No credential ID is shown on the provided certificate image.",
     verification: null,
-    certificatePdf: "/certificates/Sibananda%20Pathy%20-%20Pandas.png",
+    certificateFile: "certificates/Sibananda Pathy - Pandas.png",
+    certificateMime: "image/png",
     certificateNote: "Certificate image stored in the portfolio repository."
   },
   {
@@ -41,7 +43,8 @@ const certifications = [
     credentialLabel: "Certificate credential",
     credential: "No credential ID is shown on the provided certificate image.",
     verification: null,
-    certificatePdf: "/certificates/Sibananda%20Pathy%20-%20Intro%20to%20Programming.png",
+    certificateFile: "certificates/Sibananda Pathy - Intro to Programming.png",
+    certificateMime: "image/png",
     certificateNote: "Certificate image stored in the portfolio repository."
   },
   {
@@ -57,7 +60,8 @@ const certifications = [
     credential: "Enrolment Verification Code: jZKuhRDarihovhFmx",
     additionalCredential: "User Verification Code: EPsCepuXiamuSjhJy",
     verification: "https://www.theforage.com/simulations/deloitte-au/data-analytics-s5zy/completed",
-    certificatePdf: "/certificates/Deloitte%20AUS%20Analytics%20Certificate.pdf",
+    certificateFile: "certificates/Deloitte AUS Analytics Certificate.pdf",
+    certificateMime: "application/pdf",
     certificateNote: "Original Deloitte/Forage certificate PDF stored in the portfolio repository."
   },
   {
@@ -72,7 +76,8 @@ const certifications = [
     credentialLabel: "Certificate ID",
     credential: "b06960ca2b3672ca580fd9a8cc2bc1e50617086cfec6f0215046566ac13007e5",
     verification: "https://www.linkedin.com/learning/certificates/b06960ca2b3672ca580fd9a8cc2bc1e50617086cfec6f0215046566ac13007e5",
-    certificatePdf: "/certificates/CertificateOfCompletion_Introduction%20to%20Career%20Skills%20in%20Data%20Analytics.pdf",
+    certificateFile: "certificates/CertificateOfCompletion_Introduction to Career Skills in Data Analytics.pdf",
+    certificateMime: "application/pdf",
     certificateNote: "Original LinkedIn Learning certificate PDF stored in the portfolio repository."
   }
 ];
