@@ -1,4 +1,4 @@
-import { ArrowUpRight, Github, Clock, Lightbulb, Database, FlaskConical } from "lucide-react";
+import { ArrowUpRight, Github, Clock, Lightbulb, Database, FlaskConical, FileText } from "lucide-react";
 import GlassCard from "../ui/GlassCard";
 
 const STATUS_STYLES = {
@@ -19,8 +19,8 @@ export default function ProjectCard({ project, onOpen }) {
 
   return (
     <article className="w-full">
-      <GlassCard hover className="grid lg:grid-cols-[0.82fr_1.7fr] gap-5 lg:gap-7 min-h-[270px] p-5 sm:p-6">
-        <div className="flex flex-col min-w-0">
+      <GlassCard hover className="grid lg:grid-cols-[0.78fr_1fr_1.12fr] gap-5 lg:gap-7 min-h-[300px] p-5 sm:p-6">
+        <div className="flex flex-col min-w-0 lg:border-r lg:border-surface-border lg:pr-6">
           <div className="flex items-center justify-between gap-3 mb-4">
             <span className="font-mono text-[9px] text-ink-faint uppercase tracking-[0.16em]">{project.category}</span>
             <span className={`font-mono text-[8px] uppercase tracking-wide px-2 py-1 rounded border shrink-0 ${STATUS_STYLES[project.status]}`}>{STATUS_LABEL[project.status]}</span>
@@ -48,7 +48,7 @@ export default function ProjectCard({ project, onOpen }) {
           </div>
         </div>
 
-        <div className="flex flex-col min-w-0">
+        <div className="flex flex-col min-w-0 lg:border-r lg:border-surface-border lg:pr-6">
           <div className="mb-4">
             <p className="font-mono text-[8px] uppercase tracking-[0.15em] text-ink-faint mb-2">KEY METHOD</p>
             <div className="flex flex-wrap gap-1.5">
@@ -76,6 +76,19 @@ export default function ProjectCard({ project, onOpen }) {
               <span className="font-mono text-[7px] uppercase tracking-wider text-signal">Key Insight</span>
             </div>
             <p className="text-[9px] leading-4 text-ink-muted">{project.impact}</p>
+          </div>
+        </div>
+
+        <div className="flex flex-col min-w-0">
+          <div className="flex items-center gap-1.5 mb-2">
+            <FileText size={13} className="text-signal" />
+            <p className="font-mono text-[8px] uppercase tracking-[0.15em] text-ink-faint">PROJECT DESCRIPTION</p>
+          </div>
+          <p className="text-[10px] sm:text-[11px] leading-5 text-ink-muted mb-4">{project.problem}</p>
+
+          <div className="rounded-md border border-surface-border bg-surface-panel/45 px-3 py-3 mt-auto">
+            <p className="font-mono text-[8px] uppercase tracking-[0.15em] text-ink-faint mb-2">WHAT THIS PROJECT DOES</p>
+            <p className="text-[10px] leading-5 text-ink-muted">{project.status === "planned" ? project.tagline : project.impact}</p>
           </div>
 
           <div className="mt-3 flex items-center justify-between rounded-lg border border-surface-border bg-surface-panel/70 px-3 py-2">
